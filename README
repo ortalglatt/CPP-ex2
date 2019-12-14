@@ -1,0 +1,25 @@
+cpp_ex2
+ortal.netzer
+312416845
+######
+
+In this exercise, we built a program that contains a few classes with heritage inheritance,
+relations. The program gets a file that contains in each line a description of a fractal, and if the
+file is legal, it will print all the fractals from the last to the first one.
+
+I built a base class of fractals, that is abstract because we don't want to create a Fractal class
+without a type. The Fractal has two data members - degree and shape size.
+The Fractal class contains an implementation of draw method, that use an abstract method -
+inPattern, to print the fractal pattern.
+
+I built also two derived class of Fractal class - Sierpinski and CantorDust.
+Sierpinski class contains the Sierpinski carpet that created with shape_size = 3, and the Sierpinski
+sieve that created with shape_size = 2. I chose to put the carpet and the sieve in the same class to
+avoid from code duplication, because the inPattern method has the same implementation for both of
+them except thr shape_size.
+CantorDust class contain one fractal, and has a different implementation for inPattern method.
+
+Rule of five:
+* To avoid memory leaks, I made the Fractal base class destructor virtual.
+* The copy constructors of the derived classes are calling the copy constructor of the Fractal base,
+  because the base class does not have a default constructor.
